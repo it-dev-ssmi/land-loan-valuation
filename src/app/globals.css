@@ -154,3 +154,19 @@
   .noprint { display: none !important; }
   .doc { border: none; border-radius: 0; max-width: 100%; padding: 0; }
 }
+
+/* ===== Loader: ແຕ່ລະວົງໝຸນໄປ-ກັບ ສະລັບທິດ (ເບິ່ງ src/components/loader.tsx) ===== */
+.loader-ring {
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.loader-cw  { animation-name: loader-cw; }
+.loader-ccw { animation-name: loader-ccw; }
+@keyframes loader-cw  { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes loader-ccw { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .loader-ring { animation-duration: 12s !important; }
+}

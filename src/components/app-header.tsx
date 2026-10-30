@@ -10,6 +10,7 @@ import { LogOut } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { signOut, type Me } from '@/lib/auth';
+import { Loader } from '@/components/loader';
 
 interface Props {
   me: Me;
@@ -51,6 +52,6 @@ export function AppHeader({ me, logoUrl, instName, title, nav }: Props) {
 
 export function PageLoading() {
   return (
-    <main className="grid min-h-svh place-items-center text-sm text-muted-foreground">ກຳລັງໂຫຼດ…</main>
+    <main className="grid min-h-svh place-items-center"><Loader /></main>
   );
 }
