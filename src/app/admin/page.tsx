@@ -16,6 +16,7 @@ import { getMe, type Me } from '@/lib/auth';
 import { signedDocUrls } from '@/lib/storage';
 import { cn } from '@/lib/utils';
 import { AppHeader, PageLoading } from '@/components/app-header';
+import { Locations } from './locations';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
@@ -27,9 +28,9 @@ import { Progress } from '@/components/ui/progress';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-type Tab = 'land' | 'roads' | 'buildings' | 'conditions' | 'fees' | 'dash' | 'history' | 'settings' | 'users';
+type Tab = 'geo' | 'land' | 'roads' | 'buildings' | 'conditions' | 'fees' | 'dash' | 'history' | 'settings' | 'users';
 const ALL_TABS: [Tab, string][] = [
-  ['land', 'ລາຄາດິນ'], ['roads', 'ປະເພດທາງ & %'],
+  ['geo', 'ແຂວງ/ເມືອງ/ບ້ານ'], ['land', 'ລາຄາດິນ'], ['roads', 'ປະເພດທາງ & %'],
   ['buildings', 'ສິ່ງປຸກສ້າງ'], ['conditions', 'ອາຍຸ/ຄ່າຫຼຸ້ຍຫ້ຽນ'],
   ['fees', 'ຄ່າທຳນຽມ'], ['dash', 'Dashboard'], ['history', 'ປະຫວັດການປະເມີນ'], ['settings', 'ຕັ້ງຄ່າ'], ['users', 'ຜູ້ໃຊ້ & ສິດ'],
 ];
@@ -68,6 +69,7 @@ export default function Admin() {
               {ALL_TABS.map(([t, label]) => <TabsTrigger key={t} value={t}>{label}</TabsTrigger>)}
             </TabsList>
           </div>
+          <TabsContent value="geo"><Locations /></TabsContent>
           <TabsContent value="land"><LandPrices me={me} /></TabsContent>
           <TabsContent value="roads"><RoadTypes /></TabsContent>
           <TabsContent value="buildings"><BuildingTypes /></TabsContent>
