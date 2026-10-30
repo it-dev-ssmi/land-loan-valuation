@@ -1,0 +1,17 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# env — ມີລະຫັດ/key ແທ້, ຫ້າມ commit (ໃຊ້ .env.local.example ເປັນແບບ)
+.env
+.env*.local
+
+# misc
+.DS_Store
+*.log
+.vercel
